@@ -13571,19 +13571,19 @@ tensor([ 33,  26,  22,  39,  16,  28,  11,  43,  30,  12])</code></pre>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>torch.Size([10, 5])
-tensor([[25, 26, 27, 28, 29],
-        [23, 24, 25, 26, 27],
-        [ 1,  2,  3,  4,  5],
-        [15, 16, 17, 18, 19],
-        [38, 39, 40, 41, 42],
-        [ 8,  9, 10, 11, 12],
-        [32, 33, 34, 35, 36],
-        [22, 23, 24, 25, 26],
+tensor([[ 4,  5,  6,  7,  8],
+        [16, 17, 18, 19, 20],
+        [ 2,  3,  4,  5,  6],
+        [ 0,  1,  2,  3,  4],
         [10, 11, 12, 13, 14],
-        [ 7,  8,  9, 10, 11]])
+        [26, 27, 28, 29, 30],
+        [43, 44, 45, 46, 47],
+        [42, 43, 44, 45, 46],
+        [29, 30, 31, 32, 33],
+        [22, 23, 24, 25, 26]])
 
 torch.Size([10])
-tensor([30, 28,  6, 20, 43, 13, 37, 27, 15, 12])
+tensor([ 9, 21,  7,  5, 15, 31, 48, 47, 34, 27])
 </pre>
 </div>
 </div>
@@ -13876,7 +13876,7 @@ out = output[:, -1]</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data params</span>
@@ -13896,12 +13896,12 @@ out = output[:, -1]</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Training parameters</span>
 <span class="c1"># Number of Epochs</span>
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1">#15</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#15</span>
 <span class="c1"># Learning Rate</span>
 <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1">#0.0009 #0.001</span>
 
@@ -13915,7 +13915,7 @@ out = output[:, -1]</code></pre>
 <span class="c1"># Hidden Dimension</span>
 <span class="n">hidden_dim</span> <span class="o">=</span> <span class="mi">512</span>
 <span class="c1"># Number of RNN Layers</span>
-<span class="n">n_layers</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">n_layers</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="c1"># Show stats for every n number of batches</span>
 <span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">500</span>
@@ -13939,7 +13939,7 @@ out = output[:, -1]</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -13979,609 +13979,369 @@ out = output[:, -1]</code></pre>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>RNN(
   (embedding): Embedding(21388, 200)
-  (lstm): LSTM(200, 512, num_layers=4, batch_first=True, dropout=0.5)
+  (lstm): LSTM(200, 512, num_layers=3, batch_first=True, dropout=0.5)
   (fc): Linear(in_features=512, out_features=21388, bias=True)
 )
-Training for 50 epoch(s)...
-Epoch:    1/50    Loss: 5.9236128702163695
+Training for 30 epoch(s)...
+Epoch:    1/30    Loss: 5.916428458213806
 
-Epoch:    1/50    Loss: 5.736966064453125
+Epoch:    1/30    Loss: 5.735397793769836
 
-Epoch:    1/50    Loss: 5.736356143951416
+Epoch:    1/30    Loss: 5.196246030807495
 
-Epoch:    1/50    Loss: 5.7143798961639405
+Epoch:    1/30    Loss: 4.744779563903808
 
-Epoch:    1/50    Loss: 5.72608719921112
+Epoch:    1/30    Loss: 4.558008244514466
 
-Epoch:    1/50    Loss: 5.7391693325042725
+Epoch:    1/30    Loss: 4.455933926582336
 
-Epoch:    2/50    Loss: 5.766327596026059
+Epoch:    2/30    Loss: 4.290109087225137
 
-Epoch:    2/50    Loss: 5.794285239219666
+Epoch:    2/30    Loss: 4.182350959300995
 
-Epoch:    2/50    Loss: 5.781837282180786
+Epoch:    2/30    Loss: 4.137853013992309
 
-Epoch:    2/50    Loss: 5.780626605987549
+Epoch:    2/30    Loss: 4.115456546783447
 
-Epoch:    2/50    Loss: 5.773826107978821
+Epoch:    2/30    Loss: 4.0842235546112065
 
-Epoch:    2/50    Loss: 5.779036887168885
+Epoch:    2/30    Loss: 4.0633674306869505
 
-Epoch:    3/50    Loss: 5.755872241356851
+Epoch:    3/30    Loss: 3.9611790497936044
 
-Epoch:    3/50    Loss: 5.713825918197632
+Epoch:    3/30    Loss: 3.8688773255348208
 
-Epoch:    3/50    Loss: 5.761575222969055
+Epoch:    3/30    Loss: 3.853806278705597
 
-Epoch:    3/50    Loss: 5.75605205154419
+Epoch:    3/30    Loss: 3.848750632286072
 
-Epoch:    3/50    Loss: 5.74133236026764
+Epoch:    3/30    Loss: 3.853942012310028
 
-Epoch:    3/50    Loss: 5.720273853302002
+Epoch:    3/30    Loss: 3.812564462661743
 
-Epoch:    4/50    Loss: 5.727856523993056
+Epoch:    4/30    Loss: 3.7451278067071705
 
-Epoch:    4/50    Loss: 5.741703629493713
+Epoch:    4/30    Loss: 3.669030152320862
 
-Epoch:    4/50    Loss: 5.744027555465698
+Epoch:    4/30    Loss: 3.6813606452941894
 
-Epoch:    4/50    Loss: 5.731783699989319
+Epoch:    4/30    Loss: 3.6503653087615966
 
-Epoch:    4/50    Loss: 5.7458794364929195
+Epoch:    4/30    Loss: 3.6583852467536926
 
-Epoch:    4/50    Loss: 5.735398187637329
+Epoch:    4/30    Loss: 3.674639649391174
 
-Epoch:    5/50    Loss: 5.714250776556719
+Epoch:    5/30    Loss: 3.5937675947090373
 
-Epoch:    5/50    Loss: 5.71746337890625
+Epoch:    5/30    Loss: 3.5206782488822936
 
-Epoch:    5/50    Loss: 5.716148771286011
+Epoch:    5/30    Loss: 3.5271450877189636
 
-Epoch:    5/50    Loss: 5.7131602544784545
+Epoch:    5/30    Loss: 3.5312861371040345
 
-Epoch:    5/50    Loss: 5.707127025604248
+Epoch:    5/30    Loss: 3.5192631640434264
 
-Epoch:    5/50    Loss: 5.710114179611206
+Epoch:    5/30    Loss: 3.532492168903351
 
-Epoch:    6/50    Loss: 5.709300808600952
+Epoch:    6/30    Loss: 3.462930179442661
 
-Epoch:    6/50    Loss: 5.690465511322022
+Epoch:    6/30    Loss: 3.392923891067505
 
-Epoch:    6/50    Loss: 5.693560966491699
+Epoch:    6/30    Loss: 3.3960561089515684
 
-Epoch:    6/50    Loss: 5.665619339942932
+Epoch:    6/30    Loss: 3.414755198478699
 
-Epoch:    6/50    Loss: 5.036560502052307
+Epoch:    6/30    Loss: 3.4047586369514464
 
-Epoch:    6/50    Loss: 4.77246728181839
+Epoch:    6/30    Loss: 3.4223485951423647
 
-Epoch:    7/50    Loss: 4.5666499082093805
+Epoch:    7/30    Loss: 3.3449019721177686
 
-Epoch:    7/50    Loss: 4.4602559385299685
+Epoch:    7/30    Loss: 3.2823454146385194
 
-Epoch:    7/50    Loss: 4.402332490444183
+Epoch:    7/30    Loss: 3.291981969356537
 
-Epoch:    7/50    Loss: 4.385441840171814
+Epoch:    7/30    Loss: 3.304138043880463
 
-Epoch:    7/50    Loss: 4.3405076656341555
+Epoch:    7/30    Loss: 3.3186549119949342
 
-Epoch:    7/50    Loss: 4.303152503013611
+Epoch:    7/30    Loss: 3.3244139943122866
 
-Epoch:    8/50    Loss: 4.197757333365486
+Epoch:    8/30    Loss: 3.2690530580033608
 
-Epoch:    8/50    Loss: 4.106350590705872
+Epoch:    8/30    Loss: 3.1905116238594053
 
-Epoch:    8/50    Loss: 4.088675219058991
+Epoch:    8/30    Loss: 3.2047820138931273
 
-Epoch:    8/50    Loss: 4.080079692363739
+Epoch:    8/30    Loss: 3.227499453544617
 
-Epoch:    8/50    Loss: 4.070308058261872
+Epoch:    8/30    Loss: 3.2272837510108947
 
-Epoch:    8/50    Loss: 4.046694827079773
+Epoch:    8/30    Loss: 3.2459362778663636
 
-Epoch:    9/50    Loss: 3.9803174810516264
+Epoch:    9/30    Loss: 3.165718378152391
 
-Epoch:    9/50    Loss: 3.921945047855377
+Epoch:    9/30    Loss: 3.1137547130584715
 
-Epoch:    9/50    Loss: 3.9093744597435
+Epoch:    9/30    Loss: 3.128700091838837
 
-Epoch:    9/50    Loss: 3.8907450909614565
+Epoch:    9/30    Loss: 3.1337147488594055
 
-Epoch:    9/50    Loss: 3.893988987445831
+Epoch:    9/30    Loss: 3.149792917728424
 
-Epoch:    9/50    Loss: 3.8858950548171998
+Epoch:    9/30    Loss: 3.1752746019363403
 
-Epoch:   10/50    Loss: 3.822144696574245
+Epoch:   10/30    Loss: 3.0971792496111727
 
-Epoch:   10/50    Loss: 3.761365952014923
+Epoch:   10/30    Loss: 3.041320053577423
 
-Epoch:   10/50    Loss: 3.7553096327781677
+Epoch:   10/30    Loss: 3.057250846862793
 
-Epoch:   10/50    Loss: 3.7606447825431824
+Epoch:   10/30    Loss: 3.0796699776649477
 
-Epoch:   10/50    Loss: 3.762945143222809
+Epoch:   10/30    Loss: 3.084747959136963
 
-Epoch:   10/50    Loss: 3.7644510960578916
+Epoch:   10/30    Loss: 3.1077992401123047
 
-Epoch:   11/50    Loss: 3.700237616396387
+Epoch:   11/30    Loss: 3.023920753843787
 
-Epoch:   11/50    Loss: 3.6344891452789305
+Epoch:   11/30    Loss: 2.9774603848457337
 
-Epoch:   11/50    Loss: 3.6415370349884033
+Epoch:   11/30    Loss: 2.9967371697425844
 
-Epoch:   11/50    Loss: 3.6494031081199645
+Epoch:   11/30    Loss: 3.009453495979309
 
-Epoch:   11/50    Loss: 3.6410042457580567
+Epoch:   11/30    Loss: 3.025991171836853
 
-Epoch:   11/50    Loss: 3.6450268507003782
+Epoch:   11/30    Loss: 3.028763291835785
 
-Epoch:   12/50    Loss: 3.579214517849508
+Epoch:   12/30    Loss: 2.9728019036208626
 
-Epoch:   12/50    Loss: 3.5341566967964173
+Epoch:   12/30    Loss: 2.9108165140151976
 
-Epoch:   12/50    Loss: 3.5283892374038697
+Epoch:   12/30    Loss: 2.9382346367835996
 
-Epoch:   12/50    Loss: 3.530670476436615
+Epoch:   12/30    Loss: 2.959030764102936
 
-Epoch:   12/50    Loss: 3.5464982485771177
+Epoch:   12/30    Loss: 2.968580774784088
 
-Epoch:   12/50    Loss: 3.561477556705475
+Epoch:   12/30    Loss: 2.991550467967987
 
-Epoch:   13/50    Loss: 3.4778417662953314
+Epoch:   13/30    Loss: 2.9163141139041127
 
-Epoch:   13/50    Loss: 3.425650538444519
+Epoch:   13/30    Loss: 2.8570964851379395
 
-Epoch:   13/50    Loss: 3.431123090267181
+Epoch:   13/30    Loss: 2.888346809387207
 
-Epoch:   13/50    Loss: 3.449065212726593
+Epoch:   13/30    Loss: 2.9024394421577453
 
-Epoch:   13/50    Loss: 3.4564416813850403
+Epoch:   13/30    Loss: 2.9067201414108275
 
-Epoch:   13/50    Loss: 3.461045647621155
+Epoch:   13/30    Loss: 2.9382391476631167
 
-Epoch:   14/50    Loss: 3.4029136999213683
+Epoch:   14/30    Loss: 2.8713556914945584
 
-Epoch:   14/50    Loss: 3.3276235418319704
+Epoch:   14/30    Loss: 2.8151586141586304
 
-Epoch:   14/50    Loss: 3.352610770225525
+Epoch:   14/30    Loss: 2.8294122738838197
 
-Epoch:   14/50    Loss: 3.3713683409690858
+Epoch:   14/30    Loss: 2.85899471282959
 
-Epoch:   14/50    Loss: 3.3810210094451905
+Epoch:   14/30    Loss: 2.871587645530701
 
-Epoch:   14/50    Loss: 3.3867251443862916
+Epoch:   14/30    Loss: 2.890086328983307
 
-Epoch:   15/50    Loss: 3.3227408722967726
+Epoch:   15/30    Loss: 2.8155334534261867
 
-Epoch:   15/50    Loss: 3.266902784347534
+Epoch:   15/30    Loss: 2.766429129600525
 
-Epoch:   15/50    Loss: 3.277569876194
+Epoch:   15/30    Loss: 2.796425326347351
 
-Epoch:   15/50    Loss: 3.291171337604523
+Epoch:   15/30    Loss: 2.8175752925872803
 
-Epoch:   15/50    Loss: 3.3050632219314577
+Epoch:   15/30    Loss: 2.8333147869110107
 
-Epoch:   15/50    Loss: 3.3135462288856505
+Epoch:   15/30    Loss: 2.8463452763557435
 
-Epoch:   16/50    Loss: 3.2551191745672683
+Epoch:   16/30    Loss: 2.7798821739359765
 
-Epoch:   16/50    Loss: 3.1904706330299377
+Epoch:   16/30    Loss: 2.7386504993438723
 
-Epoch:   16/50    Loss: 3.210641803264618
+Epoch:   16/30    Loss: 2.7548546805381773
 
-Epoch:   16/50    Loss: 3.2192779026031495
+Epoch:   16/30    Loss: 2.7629734029769897
 
-Epoch:   16/50    Loss: 3.2513528027534484
+Epoch:   16/30    Loss: 2.7901908020973205
 
-Epoch:   16/50    Loss: 3.2468523507118223
+Epoch:   16/30    Loss: 2.804644658088684
 
-Epoch:   17/50    Loss: 3.189714724753177
+Epoch:   17/30    Loss: 2.7406682199282177
 
-Epoch:   17/50    Loss: 3.1241200218200684
+Epoch:   17/30    Loss: 2.690965714454651
 
-Epoch:   17/50    Loss: 3.1512294144630433
+Epoch:   17/30    Loss: 2.711832520008087
 
-Epoch:   17/50    Loss: 3.1590207862854003
+Epoch:   17/30    Loss: 2.7288342366218568
 
-Epoch:   17/50    Loss: 3.1868040890693665
+Epoch:   17/30    Loss: 2.766075195789337
 
-Epoch:   17/50    Loss: 3.198492965698242
+Epoch:   17/30    Loss: 2.763862446308136
 
-Epoch:   18/50    Loss: 3.1270760000661575
+Epoch:   18/30    Loss: 2.7010530115750413
 
-Epoch:   18/50    Loss: 3.0673306965827942
+Epoch:   18/30    Loss: 2.6713825688362123
 
-Epoch:   18/50    Loss: 3.1096658782958984
+Epoch:   18/30    Loss: 2.6664027609825136
 
-Epoch:   18/50    Loss: 3.1053624114990233
+Epoch:   18/30    Loss: 2.705073616027832
 
-Epoch:   18/50    Loss: 3.1285957560539246
+Epoch:   18/30    Loss: 2.7145500521659853
 
-Epoch:   18/50    Loss: 3.143167739391327
+Epoch:   18/30    Loss: 2.726836744785309
 
-Epoch:   19/50    Loss: 3.067920414137816
+Epoch:   19/30    Loss: 2.6700689426394955
 
-Epoch:   19/50    Loss: 3.023711144924164
+Epoch:   19/30    Loss: 2.6232138328552246
 
-Epoch:   19/50    Loss: 3.0384040694236756
+Epoch:   19/30    Loss: 2.6567892413139345
 
-Epoch:   19/50    Loss: 3.059715512752533
+Epoch:   19/30    Loss: 2.6684392309188842
 
-Epoch:   19/50    Loss: 3.067103302001953
+Epoch:   19/30    Loss: 2.6870625457763673
 
-Epoch:   19/50    Loss: 3.0877570753097534
+Epoch:   19/30    Loss: 2.704263503074646
 
-Epoch:   20/50    Loss: 3.0165408632641286
+Epoch:   20/30    Loss: 2.630048811253793
 
-Epoch:   20/50    Loss: 2.9713576951026917
+Epoch:   20/30    Loss: 2.5958918557167054
 
-Epoch:   20/50    Loss: 2.9859321546554565
+Epoch:   20/30    Loss: 2.611801528930664
 
-Epoch:   20/50    Loss: 3.0098420372009276
+Epoch:   20/30    Loss: 2.6349910464286803
 
-Epoch:   20/50    Loss: 3.023379162788391
+Epoch:   20/30    Loss: 2.6463943762779234
 
-Epoch:   20/50    Loss: 3.041295332431793
+Epoch:   20/30    Loss: 2.680505192756653
 
-Epoch:   21/50    Loss: 2.977732889043472
+Epoch:   21/30    Loss: 2.6162601778490253
 
-Epoch:   21/50    Loss: 2.928487693786621
+Epoch:   21/30    Loss: 2.5546074209213256
 
-Epoch:   21/50    Loss: 2.9328198766708375
+Epoch:   21/30    Loss: 2.5863343873023985
 
-Epoch:   21/50    Loss: 2.9611083641052245
+Epoch:   21/30    Loss: 2.609445352077484
 
-Epoch:   21/50    Loss: 2.975053078174591
+Epoch:   21/30    Loss: 2.627886221885681
 
-Epoch:   21/50    Loss: 2.993960084438324
+Epoch:   21/30    Loss: 2.6517558951377866
 
-Epoch:   22/50    Loss: 2.9248499062636135
+Epoch:   22/30    Loss: 2.577052044601673
 
-Epoch:   22/50    Loss: 2.87348380613327
+Epoch:   22/30    Loss: 2.536834334373474
 
-Epoch:   22/50    Loss: 2.9046141395568847
+Epoch:   22/30    Loss: 2.557862967967987
 
-Epoch:   22/50    Loss: 2.9175319833755493
+Epoch:   22/30    Loss: 2.583450412273407
 
-Epoch:   22/50    Loss: 2.9316098799705506
+Epoch:   22/30    Loss: 2.59158123588562
 
-Epoch:   22/50    Loss: 2.95602387714386
+Epoch:   22/30    Loss: 2.6263285746574403
 
-Epoch:   23/50    Loss: 2.8791461885884964
+Epoch:   23/30    Loss: 2.559157564099177
 
-Epoch:   23/50    Loss: 2.826963575363159
+Epoch:   23/30    Loss: 2.514165515422821
 
-Epoch:   23/50    Loss: 2.862571343421936
+Epoch:   23/30    Loss: 2.5416410942077636
 
-Epoch:   23/50    Loss: 2.883484603881836
+Epoch:   23/30    Loss: 2.549195156574249
 
-Epoch:   23/50    Loss: 2.8816668124198914
+Epoch:   23/30    Loss: 2.571887493610382
 
-Epoch:   23/50    Loss: 2.9069442081451418
+Epoch:   23/30    Loss: 2.5978877425193785
 
-Epoch:   24/50    Loss: 2.8463811382029816
+Epoch:   24/30    Loss: 2.5279766441240437
 
-Epoch:   24/50    Loss: 2.7945249943733215
+Epoch:   24/30    Loss: 2.484018452167511
 
-Epoch:   24/50    Loss: 2.8278358330726623
+Epoch:   24/30    Loss: 2.508868226528168
 
-Epoch:   24/50    Loss: 2.8360396037101747
+Epoch:   24/30    Loss: 2.52312122631073
 
-Epoch:   24/50    Loss: 2.8523961758613585
+Epoch:   24/30    Loss: 2.5542927293777464
 
-Epoch:   24/50    Loss: 2.875825758934021
+Epoch:   24/30    Loss: 2.5717411007881164
 
-Epoch:   25/50    Loss: 2.8119739545082876
+Epoch:   25/30    Loss: 2.5112579215700728
 
-Epoch:   25/50    Loss: 2.7547886900901792
+Epoch:   25/30    Loss: 2.4557069153785704
 
-Epoch:   25/50    Loss: 2.7876212801933287
+Epoch:   25/30    Loss: 2.4883823828697205
 
-Epoch:   25/50    Loss: 2.8027000641822815
+Epoch:   25/30    Loss: 2.514692947387695
 
-Epoch:   25/50    Loss: 2.8030969586372376
+Epoch:   25/30    Loss: 2.5275638070106505
 
-Epoch:   25/50    Loss: 2.83261404132843
+Epoch:   25/30    Loss: 2.5444866065979004
 
-Epoch:   26/50    Loss: 2.764677226482791
+Epoch:   26/30    Loss: 2.4895020414102116
 
-Epoch:   26/50    Loss: 2.7283387875556944
+Epoch:   26/30    Loss: 2.4418738055229188
 
-Epoch:   26/50    Loss: 2.74794526386261
+Epoch:   26/30    Loss: 2.465587738990784
 
-Epoch:   26/50    Loss: 2.766997821331024
+Epoch:   26/30    Loss: 2.4890353226661683
 
-Epoch:   26/50    Loss: 2.7820940318107605
+Epoch:   26/30    Loss: 2.5072751626968386
 
-Epoch:   26/50    Loss: 2.7994664635658264
+Epoch:   26/30    Loss: 2.5312095685005187
 
-Epoch:   27/50    Loss: 2.740698097681102
+Epoch:   27/30    Loss: 2.4622250835383777
 
-Epoch:   27/50    Loss: 2.695413962841034
+Epoch:   27/30    Loss: 2.4199662342071533
 
-Epoch:   27/50    Loss: 2.7180210027694702
+Epoch:   27/30    Loss: 2.44834658575058
 
-Epoch:   27/50    Loss: 2.7314830131530763
+Epoch:   27/30    Loss: 2.459981533050537
 
-Epoch:   27/50    Loss: 2.7504067578315734
+Epoch:   27/30    Loss: 2.489056746482849
 
-Epoch:   27/50    Loss: 2.750732717037201
+Epoch:   27/30    Loss: 2.509967502593994
 
-Epoch:   28/50    Loss: 2.699578944688411
+Epoch:   28/30    Loss: 2.4485199630927457
 
-Epoch:   28/50    Loss: 2.6608523178100585
+Epoch:   28/30    Loss: 2.410436679840088
 
-Epoch:   28/50    Loss: 2.6745267124176024
+Epoch:   28/30    Loss: 2.4167814674377444
 
-Epoch:   28/50    Loss: 2.7019797167778017
+Epoch:   28/30    Loss: 2.443320349216461
 
-Epoch:   28/50    Loss: 2.7172536544799804
+Epoch:   28/30    Loss: 2.471576600074768
 
-Epoch:   28/50    Loss: 2.7409250831604
+Epoch:   28/30    Loss: 2.481038950443268
 
-Epoch:   29/50    Loss: 2.6757574132354676
+Epoch:   29/30    Loss: 2.429705893520421
 
-Epoch:   29/50    Loss: 2.6310773720741274
+Epoch:   29/30    Loss: 2.3862926602363586
 
-Epoch:   29/50    Loss: 2.6643035974502562
+Epoch:   29/30    Loss: 2.4090896999835967
 
-Epoch:   29/50    Loss: 2.6617410349845887
+Epoch:   29/30    Loss: 2.4294550094604492
 
-Epoch:   29/50    Loss: 2.6846107597351074
+Epoch:   29/30    Loss: 2.4385543076992033
 
-Epoch:   29/50    Loss: 2.7011068825721742
+Epoch:   29/30    Loss: 2.462942348957062
 
-Epoch:   30/50    Loss: 2.6432524171268468
+Epoch:   30/30    Loss: 2.408395700512922
 
-Epoch:   30/50    Loss: 2.6031697707176207
+Epoch:   30/30    Loss: 2.3666329374313353
 
-Epoch:   30/50    Loss: 2.620438481807709
+Epoch:   30/30    Loss: 2.3952635898590087
 
-Epoch:   30/50    Loss: 2.6447460255622866
+Epoch:   30/30    Loss: 2.4069908590316773
 
-Epoch:   30/50    Loss: 2.6602943153381347
+Epoch:   30/30    Loss: 2.4259515237808227
 
-Epoch:   30/50    Loss: 2.6777457613945006
-
-Epoch:   31/50    Loss: 2.6208748739830474
-
-Epoch:   31/50    Loss: 2.5673056049346923
-
-Epoch:   31/50    Loss: 2.595060715675354
-
-Epoch:   31/50    Loss: 2.6174282369613646
-
-Epoch:   31/50    Loss: 2.630479477405548
-
-Epoch:   31/50    Loss: 2.6546674909591674
-
-Epoch:   32/50    Loss: 2.586169980185927
-
-Epoch:   32/50    Loss: 2.5462241191864012
-
-Epoch:   32/50    Loss: 2.5646963806152345
-
-Epoch:   32/50    Loss: 2.591409009933472
-
-Epoch:   32/50    Loss: 2.603140455722809
-
-Epoch:   32/50    Loss: 2.6307903337478638
-
-Epoch:   33/50    Loss: 2.5661549968370223
-
-Epoch:   33/50    Loss: 2.524141219139099
-
-Epoch:   33/50    Loss: 2.5431672682762145
-
-Epoch:   33/50    Loss: 2.5621463742256165
-
-Epoch:   33/50    Loss: 2.5765599794387817
-
-Epoch:   33/50    Loss: 2.6016060194969177
-
-Epoch:   34/50    Loss: 2.5366075300855044
-
-Epoch:   34/50    Loss: 2.5042894306182863
-
-Epoch:   34/50    Loss: 2.527591336250305
-
-Epoch:   34/50    Loss: 2.5380424737930296
-
-Epoch:   34/50    Loss: 2.556312623500824
-
-Epoch:   34/50    Loss: 2.5793359928131103
-
-Epoch:   35/50    Loss: 2.510869110588625
-
-Epoch:   35/50    Loss: 2.4833652992248534
-
-Epoch:   35/50    Loss: 2.5044749875068666
-
-Epoch:   35/50    Loss: 2.523640082359314
-
-Epoch:   35/50    Loss: 2.5375994505882264
-
-Epoch:   35/50    Loss: 2.54345307970047
-
-Epoch:   36/50    Loss: 2.4956159026552434
-
-Epoch:   36/50    Loss: 2.4589854745864868
-
-Epoch:   36/50    Loss: 2.4680499382019043
-
-Epoch:   36/50    Loss: 2.4897558817863463
-
-Epoch:   36/50    Loss: 2.517368001937866
-
-Epoch:   36/50    Loss: 2.535900996208191
-
-Epoch:   37/50    Loss: 2.4713986344400523
-
-Epoch:   37/50    Loss: 2.4354516525268552
-
-Epoch:   37/50    Loss: 2.441846131324768
-
-Epoch:   37/50    Loss: 2.477994824409485
-
-Epoch:   37/50    Loss: 2.4958113703727722
-
-Epoch:   37/50    Loss: 2.511565595149994
-
-Epoch:   38/50    Loss: 2.448847544884512
-
-Epoch:   38/50    Loss: 2.410259820461273
-
-Epoch:   38/50    Loss: 2.431007133960724
-
-Epoch:   38/50    Loss: 2.4567038650512694
-
-Epoch:   38/50    Loss: 2.4783274807929994
-
-Epoch:   38/50    Loss: 2.493341552257538
-
-Epoch:   39/50    Loss: 2.4346290992938613
-
-Epoch:   39/50    Loss: 2.3858351864814757
-
-Epoch:   39/50    Loss: 2.415386428356171
-
-Epoch:   39/50    Loss: 2.436584463596344
-
-Epoch:   39/50    Loss: 2.454409504890442
-
-Epoch:   39/50    Loss: 2.468945242881775
-
-Epoch:   40/50    Loss: 2.414461874161465
-
-Epoch:   40/50    Loss: 2.3737704458236695
-
-Epoch:   40/50    Loss: 2.4032365264892577
-
-Epoch:   40/50    Loss: 2.4135441060066225
-
-Epoch:   40/50    Loss: 2.4418958687782286
-
-Epoch:   40/50    Loss: 2.444977358341217
-
-Epoch:   41/50    Loss: 2.4021992534247443
-
-Epoch:   41/50    Loss: 2.356966190338135
-
-Epoch:   41/50    Loss: 2.3694650945663454
-
-Epoch:   41/50    Loss: 2.398010238647461
-
-Epoch:   41/50    Loss: 2.426596408843994
-
-Epoch:   41/50    Loss: 2.431456869125366
-
-Epoch:   42/50    Loss: 2.374547169385582
-
-Epoch:   42/50    Loss: 2.3419821095466613
-
-Epoch:   42/50    Loss: 2.3582621104717254
-
-Epoch:   42/50    Loss: 2.3866857905387877
-
-Epoch:   42/50    Loss: 2.4029982166290282
-
-Epoch:   42/50    Loss: 2.4147137212753296
-
-Epoch:   43/50    Loss: 2.3652876735582478
-
-Epoch:   43/50    Loss: 2.3306903738975526
-
-Epoch:   43/50    Loss: 2.361596525669098
-
-Epoch:   43/50    Loss: 2.375383563041687
-
-Epoch:   43/50    Loss: 2.382575761795044
-
-Epoch:   43/50    Loss: 2.3988244647979737
-
-Epoch:   44/50    Loss: 2.336598645391687
-
-Epoch:   44/50    Loss: 2.2980070972442626
-
-Epoch:   44/50    Loss: 2.33283230304718
-
-Epoch:   44/50    Loss: 2.3516775484085084
-
-Epoch:   44/50    Loss: 2.36531520652771
-
-Epoch:   44/50    Loss: 2.3927130999565125
-
-Epoch:   45/50    Loss: 2.326088990224099
-
-Epoch:   45/50    Loss: 2.2931811065673826
-
-Epoch:   45/50    Loss: 2.3045286729335785
-
-Epoch:   45/50    Loss: 2.3420009996891022
-
-Epoch:   45/50    Loss: 2.354692772388458
-
-Epoch:   45/50    Loss: 2.3697572228908537
-
-Epoch:   46/50    Loss: 2.3179593926649975
-
-Epoch:   46/50    Loss: 2.2789627645015718
-
-Epoch:   46/50    Loss: 2.3012558908462526
-
-Epoch:   46/50    Loss: 2.3185960204601286
-
-Epoch:   46/50    Loss: 2.332600967168808
-
-Epoch:   46/50    Loss: 2.3578792107105255
-
-Epoch:   47/50    Loss: 2.304581947147179
-
-Epoch:   47/50    Loss: 2.252315375328064
-
-Epoch:   47/50    Loss: 2.288909817457199
-
-Epoch:   47/50    Loss: 2.309825288295746
-
-Epoch:   47/50    Loss: 2.3229510228633883
-
-Epoch:   47/50    Loss: 2.3399324486255644
-
-Epoch:   48/50    Loss: 2.283658458281873
-
-Epoch:   48/50    Loss: 2.2413607125282287
-
-Epoch:   48/50    Loss: 2.2740728952884672
-
-Epoch:   48/50    Loss: 2.2885199337005617
-
-Epoch:   48/50    Loss: 2.3218885369300843
-
-Epoch:   48/50    Loss: 2.336338231563568
-
-Epoch:   49/50    Loss: 2.268178138582534
-
-Epoch:   49/50    Loss: 2.228960995912552
-
-Epoch:   49/50    Loss: 2.262768310070038
-
-Epoch:   49/50    Loss: 2.281739540338516
-
-Epoch:   49/50    Loss: 2.299321338891983
-
-Epoch:   49/50    Loss: 2.308648768901825
-
-Epoch:   50/50    Loss: 2.2579195238687744
-
-Epoch:   50/50    Loss: 2.215539211988449
-
-Epoch:   50/50    Loss: 2.2563278431892395
-
-Epoch:   50/50    Loss: 2.2649117345809935
-
-Epoch:   50/50    Loss: 2.297531537294388
-
-Epoch:   50/50    Loss: 2.290708022594452
+Epoch:   30/30    Loss: 2.447916160583496
 
 </pre>
 </div>
@@ -14626,6 +14386,7 @@ Epoch:   50/50    Loss: 2.290708022594452
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> (Write answer, here)</p>
+<p>I decided on my hypterparameters by first applying the lession from Jay on the lectures, and a lot of my parameters starting points were based on the best numbers he presented.  Once I was done with each training run I would look at my Loss and decide what I should change.  In all I completed 5 model runs and decided that my best model was <code>RUN4</code>.</p>
 <p><strong>RUN0:</strong> Notes: Good loss (2.846) but the script itself didn't make much sense. gonna increase batch_size and sequence_length.</p>
 
 <pre><code>embedding_dim=200
@@ -14686,23 +14447,23 @@ RNN(
 Training for 20 epoch(s)...
 Epoch:    1/20    Loss: 5.882231889724731
 Epoch:   20/20    Loss: 4.151670443534851</code></pre>
-<p><strong>RUN4:</strong> Notes:  Think I have a good model.  The output script is good and the loss is the lowest I've had in all 5 runs.  However, with these hyperparameters I do not think I need 50 epochs.  I didn't not seem much gain from the longer training.  Stopping at 25 or 30 might have been enough.</p>
+<p><strong>RUN4:</strong> Notes:  Think I have a good model.  The output script is good and the loss is the lowest I've had in all 5 runs.  However, with these hyperparameters I do not think I need 30 epochs.  I didn't see much gain from the longer training.  Stopping at 25 might have been enough.</p>
 
 <pre><code>embedding_dim=200
 sequence_length=15
-epochs=50
+epochs=30
 batch_size=256
-n_layers=4
+n_layers=3
 
 RNN(
   (embedding): Embedding(21388, 200)
-  (lstm): LSTM(200, 512, num_layers=4, batch_first=True, dropout=0.5)
+  (lstm): LSTM(200, 512, num_layers=3, batch_first=True, dropout=0.5)
   (fc): Linear(in_features=512, out_features=21388, bias=True)
 )
-Training for 50 epoch(s)...
-Epoch:    1/50    Loss: 5.9236128702163695
-Epoch:   25/50    Loss: 2.8030969586372376
-Epoch:   50/50    Loss: 2.290708022594452</code></pre>
+Training for 30 epoch(s)...
+Epoch:    1/30    Loss: 5.916428458213806
+Epoch:   15/30    Loss: 2.8463452763557435
+Epoch:   30/30    Loss: 2.447916160583496</code></pre>
 
 </div>
 </div>
@@ -14718,7 +14479,7 @@ Epoch:   50/50    Loss: 2.290708022594452</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -14748,7 +14509,7 @@ Epoch:   50/50    Loss: 2.290708022594452</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -14847,7 +14608,7 @@ Epoch:   50/50    Loss: 2.290708022594452</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># run the cell multiple times to get different results!</span>
@@ -14876,619 +14637,595 @@ Epoch:   50/50    Loss: 2.290708022594452</code></pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>jerry: this was unbelievable. finally i need you to drop this spatula.
+<pre>jerry: main drainage te from:...
 
-elaine:(horrified) oh, yeah.
+kramer:(interrupting) what are you doing?
 
-jerry: what are you talkin&#39; about?
+doctor: i got a bottle of scotch. they got a lot of everyday medicine shows.
 
-kramer: well, you know, i think, i couldnt believe, you know, i&#39;m so tired. i mean, i think i have a sense of things.
+jerry: you know what i mean? i doidn&#39;t really look like this, i don&#39;t know where it is.
 
-elaine: i don&#39;t want to interrupt him. i can&#39;t. you can get me to the coffee shop, and you&#39;re going to die with the enemy&#39;s leader.
+jerry: you know, sometimes i was wondering if you could be in town.
 
-george: yeah, yeah, that&#39;s him.
+kramer:(to brody) hey, hey, hey. i just spoke to you fifteen minutes.
 
-elaine: yeah?
+elaine: what are you talking about?
 
-elaine: i mean, i was in the locker room showering.
+kramer: well, you know i didn&#39;t even use any chance recently, and we were wondering what they usually do, but i&#39;m gonna go back there.
 
-jerry:(defensive) i guess you&#39;re laboring. i&#39;m very excited.
+jerry: i can&#39;t.
 
-kramer: oh, well, i&#39;m not gonna betray it.
+elaine: i can&#39;t believe i got involved with you.(she leaves)
 
-jerry: so, what about you?
+elaine: i can&#39;t do that!
 
-elaine: i told you, she&#39;s got the cups tour.
+jerry: i don&#39;t want to go.
 
-kramer: oh, well, it&#39;s awfully jerry. it&#39;s like a ski whistle. it&#39;s a real original freak, but muscular..
+kramer: hey, you got any matches?
 
-jerry: i mean, batteries says,&#34; suzie, carl!&#34;&#34; suzanne-- what is that, some blood?&#34;
+george: yeah.
 
-jerry:&#34; you know, i don&#39;t know.
+jerry: i know, i know.
 
-george: i don&#39;t know. i got a date.
+george: i can&#39;t believe this! i&#39;ve coupled, you know my hook.
 
-kramer: yeah, yeah, chew--
+kramer: you got that?
 
-jackie: let&#39;s see the same thing.(reads on the couch; trips in shock.)
+jerry: no, i didn&#39;t want anyone to do me a favor.
 
-jerry:(to the intercom) hi george? where are you?
+elaine: oh, i don&#39;t want it.
 
-elaine: hey, what are you doing?
+jerry: i don&#39;t know why you had to follow this.
 
-jerry: i told you, it&#39;s weird.
+elaine: what?
 
-george: what are you doing here, mr. kruger?
+jerry: i don&#39;t know. i don&#39;t see how kramer meant that guy are going.
 
-j. de granmont: farkus, you have a problem?
+george: well, what do you think?
 
-george: yeah, yeah.
+jerry: i&#39;m not swearing.
 
-jerry: you know what i think?
+george: i don&#39;t think so. i&#39;m going to the doctor&#39;s tonight.
 
-kramer: well, i think you cut me in my office.
+george: i can&#39;t believe you said you were going to take that aloe.
 
-george: i don&#39;t have a blender.
+george: i don&#39;t want you to tell her.
 
-kramer: yeah, yeah, right.
+jerry: what do you think?
 
-jerry: well, what happened to the building?
+kramer: you know, i don&#39;t think i can handle this thing, and i don&#39;t care.
 
-newman: i think it&#39;s a non- bedroom.
+kramer: oh, i can&#39;t.
 
-kramer:(chuckles) oh, yeah, sure, i think i will.(listens) i mean, it&#39;s embarrassing, but i can&#39;t tell you. i don&#39;t wanna hear anymore either either.
+jerry: you got the door?
 
-jerry: i thought you said the woman was in that drawer?
+kramer: no!
 
-george:(pause) i can&#39;t believe this, it&#39;s a loser.
+george: what are you doing here?
 
-jerry: it&#39;s not a speech. it&#39;s european!
+jerry: what do you need a hammer, a little bag with?
 
-george: i know.
+george: well, you know.
 
-jerry:(continuing) ohhh.
+george: well, if you think i can get a smile with him, i wouldn&#39;t have been going out with a guy who knew you.
 
-hallie: oh, yeah, yeah. yeah.(olive shows to herself as jerry exits)
+jerry: you know, i really have to talk to you for a second.
 
-jerry: hello..(opens a little nervous with george) i&#39;m sorry. i can&#39;t be a pirate!
+george: i know. but i don&#39;t think so. i just don&#39;t see how to be ch, but..(to self, whispering) oh, by the way, uh, you guys gave us the racquet, you want me to come back to florida...
 
-jerry: oh, i&#39;m just gonna get a new couch.
+elaine: yeah...
 
-elaine:(mouths) oh..
+elaine: you know i don&#39;t know what to do.
 
-george:(quietly) yi- yi- yi.
+george: hey, hey, hey, hey.
 
-jerry:(breathing) so, you know what? you are really a prude.
+jerry: hey, georgie.
 
-george: no kidding? no.
+kramer: hey. hey, hey...
 
-jerry:(showing his jacket) you know, you are not gonna hang up with me.
+elaine: hi. i didn&#39;t think i was a little girl.
 
-george: i don&#39;t know. i was just a little bored. i, i&#39;ve got a lot of women to do, and i have no tupperware. i don&#39;t have a lot who knows. i mean i think i&#39;m very much to you.
+jerry: well, i think you&#39;ll just be so comfortable.
 
-jerry: oh...
+kramer: yeah, well, it&#39;s not a beauty contest.
 
-george: i mean, what compels susan? i think he was a lesbian.
-
-george: oh, no, but i cannot go to china
-
-organizer: yes, i suppose.
-
-george:(surprise) oh, my god!
-
-jerry: no, no, it&#39;s ok. *comment is normal.
-
-kramer: you know, you should make this straight out of the garbage club.
-
-jerry: what? what happened to your car? i mean, i was gonna pay out with that ping.
-
-elaine: oh, yeah, sure. well, it&#39;s a beautiful transaction, it&#39;s a little broad on the yen.
-
-elaine:(regarding a mouthful of food) here.(panicky sob)
-
-george:(still embarrassed) i can&#39;t believe it. you know, i don&#39;t like being gonna work with him.
-
-kramer: hey, hey.
-
-elaine: what&#39;s up?
-
-kramer: oh, you know, i thought you knew.
-
-newman:(interrupting) what&#39;re you talking about?
-
-kramer: well, i don&#39;t want to get it off.
-
-jerry: you mean it wasn&#39;t yours?
-
-george: no. i mean, i mean, it was.
-
-elaine: you know, i think she doesn&#39;t owe you the car to be working.
-
-george: i think he thinks he was gonna get married. i can&#39;t. i gotta get the rest of that relationship.
-
-kramer: well, you gotta get hurt.
-
-jerry: fred?
-
-marla: yes!
-
-jerry: i wouldn&#39;t write cantaloupe on video.
-
-george: i know. i know how to get those buttons.
-
-elaine:(claps hands) oh yeah.
-
-elaine: what are you doing?
-
-jerry: i don&#39;t know. i don&#39;t have to be.
-
-sid: i know. neighbors!
-
-waitress: but, you see, i don&#39;t like to be the puffy guy who doesn&#39;t want.
-
-kramer:(claps hands) oh, my god... it&#39;s a beautiful jacket...
-
-jerry:...
-
-jerry: and then when the big edge of club and i&#39;ll save out your next name, and then the verbal clothing didn&#39;t have gone all out.
-
-elaine: i can&#39;t believe it.
-
-jerry: what is that?
-
-george: oh, it&#39;s a real problem.
-
-kramer: yeah...
-
-george: i dunno what happened.
-
-kramer: oh, hi mike. you see, i love that.
-
-jerry: i like gum. i blame you.
-
-george: well, it&#39;s a spider.
-
-jerry: well i don&#39;t want to sit alone.
-
-craig: no, i am unfocused.
-
-elaine: well, what about the sleeping arrangements?
-
-frank: the most important guy left.(laughs)
-
-george: i can&#39;t believe that you did have a lot of importance on this woman.
-
-george: you know, i don&#39;t think so.
-
-jerry: you said you don&#39;t like it?
-
-george:(suspicious) i didn&#39;t think it was funny.
-
-jerry: well, i&#39;m not gonna do it.
-
-george: i don&#39;t know if you&#39;re happy!
-
-kramer:(to elaine, and kramer, and puddy) you wanna split a broadway spot and you will have a ticket.
-
-george: i know..(distracted)
-
-kramer: well, it&#39;s just a magnificent triangle.
-
-jerry: oh, yeah.
-
-kramer: yeah, well, it&#39;s a good story.(to elaine) you believe you didn&#39;t give me a hand to put it out.
-
-jerry: i don&#39;t want to talk to him about it. i can&#39;t believe you were parking.
-
-elaine: i think you would.
-
-george:(to rava) well, you know, i had a little secret. i mean, look at this, hardwood floors.(to cynthia) cynthia, again, i gotta get back!(falls to sidra&#39;s hand)
-
-jerry: i mean i can&#39;t help overhearing that dance.
-
-george: you know, i know. it&#39;s not like a habit of humor. dan.
-
-jerry: oh, i don&#39;t think so.
-
-george: well.. i do.
-
-jerry: i mean, you know, i think i&#39;ll do everything i want you to do.
-
-elaine: i think he might have said anything.
-
-elaine: well, i don&#39;t know what you said.
-
-jerry:(reading) b&#39;d b&#39;d hee...
-
-clerk: hi.
-
-kramer: oh, hi, sidra. how you doing?
-
-elaine: hey!
-
-george: hey jerry! how you doin&#39;?
-
-man:(joey glued to say goodbye)
-
-george:(laughs hysterically) what is wrong with you?!
-
-kramer: well...
-
-jerry:(to george) what are you doin&#39;?
-
-kramer: i got it.
-
-elaine: ugh, you should do me a favor. i want to check it in to a cab, and i don&#39;t like it.
-
-jerry: i didn&#39;t know.
-
-kramer: well, you know, i don&#39;t know, mike. it&#39;s very unusual.
-
-jerry: i think that&#39;s what he said, and i know what she is. and he thinks he might ask him that.
-
-helen: well, it&#39;s not that easy.
-
-jerry: well, i guess it&#39;s a little something.
-
-george: i know what it means.
-
-jerry: i thought you were a little too enthusiastic about it.
-
-george: i think, well, it&#39;s not my fault.
-
-helen: you don&#39;t have to go.
-
-george: well........ hum...
-
-sally:... what?
-
-carl: well, we have a fire goal to a ten and five dollars.
-
-elaine: well i guess it&#39;s a pretty good move.
-
-kramer: yeah.
-
-elaine: yeah, i got to warn you, lloyd. y- i gotta find my machine gun and i&#39;ll get to a rumble...(exits)
-
-elaine:(triumphant) yodel bin hee- a used to have a back of &#39;em.
-
-george: well, i don&#39;t know how you do it.
-
-jerry: so you think you&#39;re going to treat me at a restaurant.
-
-george: well, you know, i don&#39;t like to be late!
-
-george: you don&#39;t think it&#39;s funny.
-
-kramer:(cont&#39;d) oh, i&#39;m sorry.
-
-wendy: i know, but i have to have my own serious- i&#39;m taking them in.
-
-kramer:(exiting) oh, my goodness..
-
-george: what?
+steinbrenner: yeah, that&#39;s right!
 
 jerry: what?
 
-george: you know i don&#39;t want to.
+george: i got a date.(to chauffer) hey, you know, you can&#39;t get a new place to get back.
 
-organizer: well, it was a hell of a problem.
+george:(angry) i can&#39;t believe i&#39;m buying it.
 
-elaine: well, i wouldn&#39;t really want to get out of this thing.
+jerry:(jokingly mimicking the voice) yeah.
 
-jerry:(to the other laundry patrons is standing) you know, i have no idea.
+elaine: so, how could this be?
 
-kramer:(indicating) yeah, the van place, but the busboys has turned up.
+jerry: i don&#39;t know. i don&#39;t think i could be going back there.
 
-elaine: oh, come on. don&#39;t get up.
+george: well i am not giving it to him. i can do it. i got a date.
 
-kramer: what, what is wrong with you?
+jerry: oh yeah, right. [clicks over] hello?
 
-kramer: sand!
+mel: yeah!
 
-jerry: assman.
+george:(to jerry) what did you say?
 
-milos: morning.
+jerry: well, i think it moved.
 
-george: celia&#39;s, jerry!(runs off to tom sidra&#39;s side)
+george:(angry) well, i don&#39;t want to hear about it.
 
-jerry: what?
+george:(germanic) yes, yes. yes, i have to tell you, unfortunately, i don&#39;t think we have fleas.
 
-newman: you don&#39;t know what you&#39;re going to say.
+o&#39;neill: you can just forget, but you gotta get some sleep.
 
-george: you don&#39;t think you can have a good couch?
+george: i can&#39;t carry this off. i can&#39;t do it.
 
-jerry:(sitting beside george) i don&#39;t have any money. i have to work for these!
+jerry: well, i&#39;m not gonna tell elaine.
 
-jerry:(to kramer) i told you about that. i can&#39;t take it.
+helen: he is?
 
-kramer:(to jerry) i told ya. i don&#39;t think it was possible to be alone.
+jerry: yeah, he does. he didn&#39;t say that.
 
-jerry: i know what i am saying, but i don&#39;t like it.
+elaine: well, she was a very close. she just wants to be in the car, and she said she wants to see me again.
 
-jerry: oh, no. i don&#39;t think so.
+george: i know. i can&#39;t.
 
-newman: do you have anything to do with the dogs?
+george: well, i don&#39;t want to talk to her anymore either.
 
-jerry: no i don&#39;t think so.
+jerry: what are you doing?
 
-kramer: you got a pen, buddy.
+kramer: well i can&#39;t tell you that i...
 
-george: oh, yeah..
+elaine: well, he just came back.
 
-jerry:(embarrassed/self- conscious wonder) hey, you guys!
-
-george: hey, how ya doin&#39;?
-
-jerry: i don&#39;t know.
-
-george: you know, i think i got a date with that.
-
-jerry: you know, i don&#39;t like it anymore. i don&#39;t like it. ttst, i killed actors!
-
-kramer: shh!!!
-
-kramer: well, i gotta tell ya, i thought you might.
-
-jerry: oh, come on.
-
-elaine: no, no.
-
-elaine: all right, so, i think i can get going...
-
-jerry:(sarcastic) hmm....
-
-kramer:(adding) yodel lay hee hoo?
-
-jerry: pam, dad. [to kramer] no. don&#39;t get the crap.
-
-jerry: no, no, 12 brown.
-
-willie: no, no. i have to go.
-
-jerry:(to george) harold.(pause) you wanna go faster, don&#39;t worry about it, i gotta talk about it..
-
-[setting: coffee shop]
-
-gwen:(mock sympathy) you better drop a limit?
-
-jerry: no, but it&#39;s not the point.
-
-elaine: no, no, i can&#39;t.
-
-rick: no, no. i don&#39;t...
-
-jerry: no, no.......
-
-elaine: no no no no. i can&#39;t wait to warn you.
-
-jerry: i know.
-
-elaine: well, i just got it earlier.
-
-jerry: i know. i know how long i am.
-
-helen: jerry, i&#39;m sorry. i just wanted to know what kind of...
-
-jerry: i don&#39;t think so...
-
-george: i can&#39;t...
-
-jerry: oh.
-
-kramer: well, you gotta get this straight, and you don&#39;t have to dissect it again. you cant be careful to me. i mean, you have a huge case of hennigans, you have got access to the person, whatever you don&#39;t wanna get into the car.
-
-elaine: what? why not?
-
-kramer: well you know, i think it&#39;s the only thing that i love.
-
-jerry:(referring to elaine) where&#39;s the bathroom?(jerry enters; to kramer) you remember&#34; you don&#39;t even taste the english bear.&#34;
-
-elaine:&#34; yeah, yeah, yeah, but i gotcha.... whoa.
-
-george: hey, i sat to tufts, i&#39;m the same thing to the cayman.
-
-jerry: no, no, no, i can&#39;t. i mean, it&#39;s not my fault. you know, poise and i were about to relax, you don&#39;t care for it.
-
-kramer: well, it&#39;s not a thrill.
-
-kramer: no, no. i don&#39;t wanna shake my head. germs is tough.
-
-jerry: i think that&#39;s very good.
-
-george: i know.
-
-elaine: you don&#39;t understand.
-
-george: i can&#39;t.
-
-jerry: you killed me?
-
-george: yes i did. i like to gamble spaghetti and ask you.
-
-jerry: so what are you going to do?
-
-george: i just remembered, th- th---
-
-jackie: anyway, she asked me to sit in your building, but i really have one time! i&#39;m so sorry.
-
-kramer:(flattered) well, it&#39;s a drag-- it&#39;s yellow! it&#39;s like a wash!(hahaha)
-
-jean- paul: you miss your 1987 and you can&#39;t sleep for you.
-
-elaine: well i think i may have been consulted to you.
-
-kramer:(aggressive) what is wrong with you?
-
-jerry: i don&#39;t think so.
-
-kramer:(pleading) hey, jerry, i got news for all.
-
-jerry: what?
-
-george: i don&#39;t know.
-
-jerry: you didnt see what the reason i have to say.
-
-kramer: well, you know, i can&#39;t.
-
-jerry: you know, i have no idea.
-
-george: i can&#39;t.
-
-jerry: you cant have george&#39;s own car.
-
-kramer:(realisation and banging his arm) according to that chicken restaurant?
-
-jerry:(to kramer) i told you about that.
-
-kramer:(lighting the box) oh, my god.
-
-kramer: oh, come on!
-
-jerry: so, wheres your due?
-
-george: bert... har....... wh!
-
-teller:(laughing) eeen, i&#39;m george...
-
-jerry: oh, come on.
-
-kramer: hey! hey! look at this.
-
-jerry: oh, i forgot to put it in there.
-
-elaine: oh, no. no no no, don&#39;t worry about it. i&#39;m gonna call you.
-
-kramer:(claps hands) oh, i&#39;m really sorry. i got a lot of things to do today.
-
-mr. steinbrenner: hire him?
-
-george: no, no. i just walked over there.
-
-jerry: oh yeah, yeah.(broaching the box)
-
-dustin please.
-
-jerry: 53, i think i have a problem with that.
-
-george:(gesturing to jerry) what about your fish?
-
-kramer:(to jerry) hey buddy, you know my friend bob sacamano and erotic peel.
-
-elaine: oh yeah?
-
-jerry: what?
-
-elaine:(desperate to distract jerry in the agreement) oh my god!(opens door)
-
-kramer: hey, buddy.
-
-joey: hi, you look under the staff.
-
-milos:(sobbing) what is this?
-
-elaine: it&#39;s a new neil.
-
-george:(to elaine) what about the wedding?
-
-jerry: yeah, i guess i can go.
-
-kramer: i can&#39;t. i couldn&#39;t.
-
-jerry: you flew on this thing? they were going to get the calzones in the extra office. i was in the middle of the car 4...
-
-kramer: wellll, i think you can get hurt, that&#39;s a quarter.
-
-elaine:(irritated) awright.
-
-jerry: yeahh!
-
-george:(to self) oh, by the way, order with your home. indoors.
-
-jerry: pinkish hue?
-
-elaine: no, supermarket.
-
-kramer:(leaving gibberish) stickin&#39; it. i won&#39;t get it back, or no, no one wears the phone, you have it, you got it all, and ill create it.
-
-george: i can&#39;t believe i&#39;m saying.
-
-kramer: neither?
-
-newman: yeah, but you have a good run in the hamptons.
-
-jerry: you are?
-
-george: i don&#39;t know.
-
-jerry: you said you didn&#39;t mind?
-
-elaine: i didn&#39;t know.
-
-jerry: no one&#39;s stealing.
-
-george: you don&#39;t have to keep a rose inquiry and a healthy patient.
-
-jerry:(exasperated) you don&#39;t tip it?
-
-usher: no.
-
-elaine: you know, einstein really said anything was involved, and now i got to pay for a psalm!
-
-jerry: i don&#39;t think i can be a good meal, but sometimes you know, i would like to apologise. i don&#39;t even know why i&#39;m doing it.
-
-elaine: i can&#39;t do it.
-
-jerry: i know who it is, but i think i may have found the receipt.
-
-elaine:(leaving) hey.
+jerry:(pause) alright..
 
 kramer: hey.
 
-jerry: hey.
+jerry: hey, georgie.
 
-kramer: hey.
-
-kramer: hey, hey.
-
-jerry: hey.
-
-jerry: hey.
-
-kramer: hey.
-
-jerry: hey.
-
-kramer: hey.
-
-george: hey.
+george: hi.
 
 jerry: hi.
 
-elaine: hi.
+kramer:(looking at kramer) you recognise the soup!
 
-jerry: hey, guess who? s the difference?
+jerry: i don&#39;t want to talk about it!(starts to get pockets) i&#39;m not crazy! i don&#39;t think so.
+
+george: i don&#39;t understand. i was starving. i did not go alone.
+
+jerry: i can&#39;t.
+
+tierney: but i don&#39;t think so.
+
+jerry: what?
+
+george: i don&#39;t know.
+
+jerry: what? you dont think she&#39;s going to do this?
+
+george: i don&#39;t want it.
+
+elaine: what are you gonna tell you about the clanking noise?
+
+jerry: i don&#39;t know... i don&#39;t think i should do that.
+
+kramer: you don&#39;t have to worry about that.
+
+george: no, it&#39;s not that.
+
+george: i know it&#39;s not like a sunny von bulow comma. i have never seen you looser than a person.
+
+jerry: well, i think you&#39;ll have to talk about it.
+
+george: i guess you said driver.
+
+george: oh yeah, but i was just so thrilled.(drops a sip of his pocket)
+
+jerry:(thinking) i can&#39;t.
+
+elaine:(laughing) i didn&#39;t tattle..
+
+kramer: what are you talking about?
+
+jerry: i said luss.
+
+elaine: i think i would.
+
+jerry: well, what is that, a vampire with the foreman?
+
+bonnie: no, it&#39;s not debunked. i don&#39;t wanna go back.
+
+elaine: no, i can&#39;t.
+
+jerry: i mean, i really think you&#39;re getting something.
+
+kramer: well, you know what i do? i know what i do. it&#39;s like a kid finding the defective.
+
+george: well, i gotta tell you that i am quitting
+
+elaine: i mean, it&#39;s not like changing..
+
+jerry: yeah...
+
+elaine: i am not giving you an impression.
+
+jerry: what do you think?
+
+kramer: well i was trying to get you a chuckle.(she walks over to the window.)
+
+lanette: so, what did he say?
+
+elaine: i don&#39;t know. he just doesn&#39;t know anything about me.
+
+jerry: oh..
+
+elaine: so?
+
+jerry: so you just pretended this was yours?
+
+elaine: no, it&#39;s not that.
+
+jerry: well, i don&#39;t want to be able to have to be friends, so, uh... i mean, it&#39;s not that.
+
+jerry: no, it&#39;s not...
+
+elaine: oh, god, it&#39;s a blue dream.
+
+jerry: you know, you could just go.
+
+george: oh, you know, i can&#39;t live without these guys.
+
+jerry: oh, well, i guess i could have sex with you for my business.
+
+jerry: oh, i forgot to have it.
+
+elaine: oh, no! that&#39;s impossible!
+
+george:(to the phone) oh god, what is this? what is it? i got the hook. you shook it, i think i got flea bites.(chuckles)
+
+george: i think that&#39;s a great idea. i think it&#39;s a woman.
+
+elaine: yeah, i know.
+
+george: well, i think i&#39;m getting a little uncomfortable.
+
+jerry:(to george) hey, hey!
+
+kramer: i&#39;m starving. i can&#39;t go back there and take em in the car.
+
+jerry:(sarcastically) oh yeah?
+
+kramer: yeah. yeah, yeah, yeah..
+
+kramer: well, that&#39;s the same day, but i got a big slice. but i showered. you know, i don&#39;t think so.(george considers her name)
+
+jerry: hey.
+
+kramer: yeah, and i jumped for strawberry and you want to talk about it!
+
+george: i can&#39;t! i can&#39;t.
+
+jerry: so, what was it, i? m a comedian.
+
+elaine: oh, no. no.
+
+[scene: at monks caf].
+
+herb:(opens the door) you have a deal!!
+
+kramer: no, no, no, no. i can&#39;t believe it, i got a date with you.
+
+george:(to george and him) you see that, uh, you drugged a lot of work in the back. you know, they always give it to me.
+
+george: yeah, yeah.
+
+george: jody
+
+elaine: ok.
+
+george: bye.
+
+kramer:(to himself) oh yeah, you know, unfortunately, you know, you were engaged, i mean, i was thinking maybe i was just so good. you know, you have a little big...
+
+jerry: oh, no, it&#39;s kenny!(kramer enters)
+
+elaine:(to kramer) hey listen it&#39;s gonna get a little steam.
+
+george: hey, hey.
+
+jerry: so, i was wondering if you were a hostage, then, uh i had a little crush up on the edge of blossom.
+
+george: yeah, but i didn&#39;t want anyone to do me any more than me.
+
+kramer:(bangs camera off) nah.
+
+george: you know, i was adopted.(preens) what do you think?
+
+jerry:(wistful) i don&#39;t think so.
+
+george: i don&#39;t understand, i don&#39;t know how to tell you. i was just curious. you know, we should get together.
+
+jerry: i don&#39;t want to see it anymore. i can&#39;t believe i told you this is my first date.
+
+george: oh, yeah, i suppose.
+
+kramer: well, what are you gonna talk about?
+
+jerry: i&#39;m goin&#39; to california.(she exits)
+
+elaine: you know, that was the motto.(george crumbles.)
+
+poppie:(shouting) george, george!(crawls out the phone)
+
+elaine: well you don&#39;t think so, uh. you remember that?
+
+jerry: oh yeah. i think that&#39;s a pretty good idea.
+
+elaine: oh...
+
+jerry: well, i think we should get going...
+
+kramer:(simultaneous) oh, i&#39;m sorry, uh, i think i&#39;m getting the real way.(beat) what d&#39;you mean?!
+
+elaine:(laughs) no!
+
+jerry:(to the phone) hello? rachel, this is jenna.
+
+kramer: hey, jerry!
+
+jerry:(to bartender) hey!
+
+george:(to jerry) hey, is that a joke? i got a bunch of gum in that bathroom.
+
+george: i don&#39;t think so.
+
+jerry: you don&#39;t know what you&#39;re saying.
+
+george: i am never going to see that.(exits of mock fingers and double boots)
+
+elaine:(cont) yeah.
+
+jerry:(to george) hey.
+
+george: hi.
+
+jerry: so what?
+
+kramer: well, i just got back.
+
+jerry: you can&#39;t do this?
+
+george: yeah. i don&#39;t see what i&#39;m gonna do. i&#39;m gonna have to ask him.
+
+jerry: what? what happened to you?
+
+george: i told him i had a little problem with that.
+
+jerry: you know, if you don&#39;t like the mavericks of jeopardy, you can&#39;t get hurt.
+
+kramer: yeah! yeah, yeah, yeah..
+
+george: what?
+
+elaine: what is that? a couple of days? what if they look like me?
+
+jerry: i don&#39;t know.
+
+george: i don&#39;t know. you gotta get me some fruit.
+
+george: oh! euh...(makes a gesture gesture)... kenny!
+
+george: yeah, well, you just said that i was a little more tactful.
+
+elaine: yeah.
+
+george: well, i don&#39;t know if i could get a maid.
+
+jerry: what?
+
+george: you shook it, i think i got a little thing.
+
+jerry: oh god, it&#39;s not that.
+
+elaine: oh, yeah, well, i know, i was in the middle of a very serious issue, and i was wondering if it was an inflatable.
+
+jerry: well, i&#39;m not saying....
+
+elaine: oh, yeah, yeah.
+
+jerry: you know, i was thinking that you could get a little more.
+
+elaine: yeah.
+
+jerry: so what are you gonna talk for me?
+
+kramer: i don&#39;t know.
+
+jerry: well, i&#39;m not gonna get away with this, i know that i am.. i&#39;m searching for answers.
+
+elaine: what? you think i&#39;m going to tell me?
+
+jerry: you don&#39;t have to whisper.
+
+kramer: hey.
+
+george: hi.
+
+kramer: hey, buddy. how are you?
+
+simon: i&#39;m rita.
+
+george: good luck with that.
+
+marcy: hi.
+
+jerry: hi, lisi, sh...
+
+izzy jr. : good evening...
+
+george: oh, hi jerry.(whispers) what is that?
+
+jerry: mulva!
+
+kramer:(seeing jerry) hey, you watchin&#39; oprah?
+
+jerry: yeah, yeah, yeah..
+
+kramer:(still talking about the slicer) oh god, what are you doing here?
+
+jerry: well, we talked for you, i know...
+
+elaine: oh, you have to do this?
+
+kramer: yeah, yeah.
+
+maxwell: yeah.
+
+george: i don&#39;t know, i just remembered.
+
+jerry: well, you know what, you don&#39;t want me to tuck up here?
 
 kramer: yeah.
 
-jerry: i don&#39;t think so.
+maxwell: you sure i don&#39;t have a problem.
 
-kramer: well, i&#39;m not gonna put a few dollar over here.
+jerry: what?
 
-jerry: oh, i didn&#39;t know it was possible to be able to get together with you.
+marla: what do you think, junior?
 
-kramer:(quietly) i am?!
+jerry: i don&#39;t know, i know.
 
-jerry:(pause) extraordinary?!
+elaine: you can&#39;t go to the movies? you ever seen me?
 
-sally:(shouts again) wha.. what do you design?
+jerry: no, i don&#39;t want it.
 
-kramer: ch- huh?
+bookman: you know, i don&#39;t want any help.
 
-frank: i think that it is.
+jerry: well, i gotta go and visit you at the lichtenberg&#39;s and you got your own pie...(jerry and pitt stare at george).(smiles and clapping)
 
-jerry: well, i don&#39;t know if
+george: i don&#39;t know what i&#39;m doing here. i can&#39;t believe i was going to the game for a perfume.
+
+kramer: oh.
+
+jerry:(pause) you know, if you don&#39;t follow the movie i needed mike for a discount, going:?
+
+george: yeah, yeah.
+
+jerry: well, i guess i have to work this afternoon.
+
+mr. steinbrenner:(o. c.) : august seventeen.
+
+jerry: so, what&#39;s your percentage?
+
+elaine: i think i got a little problem with it.
+
+george: i have a great time.
+
+jerry: yeah, yeah.
+
+elaine: well, i&#39;m sorry.
+
+jerry:(still shooting by her) you got a new organizer.
+
+george: you got me a car! i don&#39;t want the keys back!
+
+george: what do you mean, i? m holding a lot of times.
+
+jerry: you got the aids car.
+
+george: i don&#39;t want morgan&#39;s job. i don&#39;t see how you can sweep for jujyfruit anymore.(kramer comes back and down down)
+
+george:(on the phone, he quickly sits down) hey, look, you got a big head.
+
+george: i got a letter.
+
+jerry: what are you talking about? you are a laughingstock. what about that spot?
+
+george:(to kramer and yelling) no, i don&#39;t think we should see each other anymore.
+
+george:(disappointment, silently mouthed) you know what this funerals gonna wind up costing me? i don&#39;t want to hear it!
+
+frank: will you do something with it?
+
+george: yes, i think i can do that.
+
+elaine: oh, no, no, no. i don&#39;t think so.
+
+jerry: you don&#39;t like him, if anything like that i must never do it.
+
+george: i know, i know.
+
+jerry: you got something?
+
+george: yes! the enthusiastic is not even damaged for that clown. it&#39;s like a movie fiction night.
+
+kramer: oh yeah.
+
+george: jody, sh!
+
+jerry: hey.
+
+elaine: hey, georgie, i got a good time, i sure they might have something.
+
+jerry: well, i don&#39;t want to talk about it, but i don&#39;t have the money, but i&#39;m afraid i brought it up to a woman.
+
+elaine: oh yeah?
+
+jerry: yeah, i suppose you don&#39;t like it..
+
+kramer: you know, you should be going to be a little bit than this.
+
+kramer: well, i was just gonna have to cancel it.
+
+kramer: yeah.
+
+jerry: so, what&#39;s your name?
+
+kramer: well, i was thinking of donating an hour and i banged up my napkin. i was transferring him off and i got you...
+
+george: oh no, no, no, no, i just got a big favor. i&#39;m not gonna call him.
+
+jerry: you can&#39;t see what&#39;s on this one. i don&#39;t know what to do. i d- men know what i mean, you know. solid tires, reinforced seatpost, heavy duty shocks.
+
+jerry: oh, you know what? i think it looks like a pure on it!
+
+george: well, it&#39;s just a big budget car...
+
+jerry: i don&#39;t understand. i don&#39;t know what to do. i&#39;m going to have enough a little, but i&#39;m a big fan...(disbelief) i mean, i have a little chat with the song.
+
+jerry: oh.
+
+george: i don&#39;t understand, what is it?
+
+jerry: well, i think that&#39;s wrong.
+
+elaine: oh, well, i didn&#39;t know what i&#39;m talking about.
+
+jerry: oh, well, i don&#39;t really know what the big company is.
+
+elaine: i know, i have a friend call a dilemma. you know, i think it&#39;s a woman, it&#39;s a slap.
+
+kramer: it&#39;s not a photograph, jerry.
+
+elaine: well, it was easy.
+
+jerry: well, it&#39;s not a little cooler
+
+elaine: no, no, it&#39;s not.
+
+hallie: no, no. no, no. i can&#39;t. i&#39;m just gonna watch the show.
+
+george:(to the waitress bringing behind the tables) you know, i spent a call for a mid- mile of cable.
+
+elaine: oh, i don&#39;t know.
+
+jerry: what do you think, you don&#39;t want to be murphy for a serious, or did i tell you a name.
+
+todd: what kind of person?
+
+george:
 </pre>
 </div>
 </div>
@@ -15507,7 +15244,7 @@ jerry: well, i don&#39;t know if
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save script to a text file</span>
